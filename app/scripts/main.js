@@ -37,35 +37,25 @@ $(document).ready(function () {
             // call to the background function
             var code;
             code = weather.weather[0].id;
-
             setBackground(code);
 
             // message on the view
             $('.weather').append(
                 temperature + ' Cº and ' + today
             );
+            
         }, "jsonp");
-        
+
     };
 
     function setBackground(id) {
-
-        var back;
-        var body = $('body');
-
-        back = 'http://mcritica.com/wp-content/uploads/2015/07/cloud.jpg';
-        
-        'http://mcritica.com/wp-content/uploads/2015/07/rain.jpg'
-
-        'http://mcritica.com/wp-content/uploads/2015/07/snow.jpg'
-        
-        
-        'http://mcritica.com/wp-content/uploads/2015/07/storm.jpg'
-        
-        'http://mcritica.com/wp-content/uploads/2015/07/sun.jpg'
-        
-        body.css('background', 'url('+back+') no-repeat center center fixed ');
-
+        var back = 'http://mcritica.com/wp-content/uploads/2015/07/sun.jpg';
+        var body = $('html');
+        if (id > 290 && id < 590) back = 'http://mcritica.com/wp-content/uploads/2015/07/rain.jpg';
+        else if (id > 590 && id<650) back =         'http://mcritica.com/wp-content/uploads/2015/07/snow.jpg';
+        else if (id > 690 && id<790) back =         'http://mcritica.com/wp-content/uploads/2015/07/storm.jpg';
+        else if(id >699 && id<805) back = 'http://mcritica.com/wp-content/uploads/2015/07/cloud.jpg';
+        body.css('background', 'url(' + back + ') no-repeat center center fixed ');
     };
 
 });
