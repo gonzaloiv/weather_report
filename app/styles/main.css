@@ -1,0 +1,30 @@
+html{
+    background:black;
+}
+body{
+    margin:0 auto; 
+    font-family:sans-serif;
+    font-weight:200;
+    letter-spacing:0.5px;
+    min-height:700px;
+}
+
+.content{
+    text-align:center;
+    width:800px;
+    margin:0 -auto;
+    z-index:10;
+    font-size:2em;
+    vertical-align:middle;
+    position:absolute;
+}
+.content:before{
+    content:'';
+    width:400px;
+    height:200px;    
+    position:absolute;
+    background-color:#FFFFFF;
+    opacity:0.5;
+    z-index:-10;
+    text-transform:uppercase;
+}
