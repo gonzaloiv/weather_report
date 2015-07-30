@@ -1,21 +1,24 @@
-$(document).ready(function () {
+var main = {
 
-    getLocation();
+    getLocation: function () {
 
-    function getLocation() {
-        $.get("http://ipinfo.io", function (location) {
-
+        $.ajax({
+            url:"http://ipinfo.io",
+            method: "GET",
+            dataType:'json'
+        }).done(function (location) {
             console.log(location);
-
             // call to the weather function
-            getWeather(location.loc);
-
+            main.getWeather(location.loc);
             // DOM modification
             $('.city').append('here in ' + location.city);
-        }, "jsonp");
-    }
 
-    function getWeather(loc) {
+        }).fail(function () {
+            $('.city').append('Wooops...');
+        })
+    },
+
+    getWeather: function (loc) {
         lat = loc.split(",")[0] //.toString();
         lon = loc.split(",")[1] //.toString();
 
@@ -37,29 +40,25 @@ $(document).ready(function () {
             // call to the background function
             var code;
             code = weather.weather[0].id;
-            setBackground(code);
+            main.setBackground(code);
 
             // message on the view
             $('.weather').append(
                 temperature + ' Cº and ' + today
             );
-            
+
         }, "jsonp");
 
-    };
+    },
 
-    function setBackground(id) {
+    setBackground: function (id) {
         var back = 'http://mcritica.com/wp-content/uploads/2015/07/sun.jpg';
         var body = $('html');
         if (id > 290 && id < 590) back = 'http://mcritica.com/wp-content/uploads/2015/07/rain.jpg';
-        else if (id > 590 && id<650) back =         'http://mcritica.com/wp-content/uploads/2015/07/snow.jpg';
-        else if (id > 690 && id<790) back =         'http://mcritica.com/wp-content/uploads/2015/07/storm.jpg';
-        else if(id >699 && id<805) back = 'http://mcritica.com/wp-content/uploads/2015/07/cloud.jpg';
+        else if (id > 590 && id < 650) back = 'http://mcritica.com/wp-content/uploads/2015/07/snow.jpg';
+        else if (id > 690 && id < 790) back = 'http://mcritica.com/wp-content/uploads/2015/07/storm.jpg';
+        else if (id > 699 && id < 800) back = 'http://mcritica.com/wp-content/uploads/2015/07/cloud.jpg';
         body.css('background', 'url(' + back + ') no-repeat center center fixed ');
-    };
+    }
 
-});
-
-$(document).ready(function () {
-
-});
+}
