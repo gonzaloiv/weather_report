@@ -1,3 +1,0 @@
-66bb3d10069dbf7a203e82685de74096
-
-api.openweathermap.org/data/2.5/weather?lat=35&lon=139

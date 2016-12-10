@@ -1,44 +1,30 @@
-<!doctype html>
-<html lang="">
+<!DOCTYPE html>
+<html lang="en">
 
-<head>
+  <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <title>Heavy Weather</title>
-    <meta name="Playing with weather API's" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
 
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-</head>
-
-<body>
-    <!--[if lt IE 10]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+  <body>
 
     <div class="content">
-        <div class="header">
-            <span>Weather Report</span>
-            <p>A window to your local weather</p>
-        </div>
-        <div class="info">
-            <div class="weather"></div>
-            <div class="city"></div>
-        </div>
+      <div class="header">
+        <span>Weather Report</span>
+        <p>A window to your local weather</p>
+      </div>
+      <div class="info">
+        <div class="weather"></div>
+        <div class="city"></div>
+      </div>
     </div>
 
-    <!-- build:js scripts/main.js -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="scripts/env.js"></script>
     <script src="scripts/main.js"></script>
-    <script>main.getLocation();</script>
-    <!-- endbuild -->
 
-</body>
+  </body>
 
 </html>
